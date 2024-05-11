@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dorm 690 | Rooms Table</title>
+    <link rel="icon" href="photos/Dorm 690 Logo 2.png" type="image/icon type">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100px;
+            display: inline-block;
+        }
+
+        table {
+            margin-top: 30px;
+            margin: auto;
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        th,
+        td {
+            font-size: 15px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #E0B973;
+            width: 200px;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            width: fit-content;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        .button {
+            width: 300px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+            width: 65px;
+
+        }
+
+        .btn-edit:hover,
+        .btn-add:hover,
+        .btn-delete:hover {
+            opacity: 0.9;
+        }
+
+        .btn-add {
+            background-color: #4CAF50;
+            color: white;
+            width: 65px;
+
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            width: 65px;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+        }
+
+        .btn-cancel {
+            background-color: #f44336;
+        }
+
+        .btn-update,
+        .btn-cancel-edit {
+            display: inline-block;
+        }
+
+        .edit-mode {
+            background-color: #f2f2f2;
+        }
+
+        .table-wrapper {
+            width: 90%;
+            width: 100%;
+            max-height: 500px;
+            /* Adjust the height as needed */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="dashboard.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">
+                        <img src="photos/Dorm 690 Logo 2.png" alt="">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+
+                <li><a href="../Admin - Dashboard/dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+
+                <li><a href="../Admin - TenantsAcounts/Accounts.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Tenants</span>
+                    </a></li>
+
+                <li><a href="../Admin - Accounts/AllAccounts.html">
+                        <i class="fas fa-address-book"></i>
+                        <span class="nav-item">Accounts</span>
+                    </a></li>
+
+                <li><a href="#" class="active">
+                        <i class="fas fa-bed"></i>
+                        <span class="nav-item">Rooms</span>
+                    </a></li>
+
+                <li><a href="../Admin- Payment Table/paymentTable.html">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Payment</span>
+                    </a></li>
+
+                <li><a href="../Admin - Reservation/Reservation.html">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-item">Reservations</span>
+                    </a></li>
+                <li><a href="../Admin - Contract/Contract.html">
+                        <i class="fas fa-file"></i>
+                        <span class="nav-item">Contract</span>
+                    </a></li>
+                <li><a href="../Admin - Sales/Sales.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Sales</span>
+                    </a></li>
+
+                <li><a href="../../TenantS/Homefolder/Home.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <h1>Room Table</h1>
+            <div class="table-wrapper">
+                <table id="roomTable">
+                    <thead>
+                        <tr>
+                            <th>Room ID</th>
+                            <th>Room Type</th>
+                            <th>Room Number</th>
+                            <th>Price</th>
+                            <th>Capacity</th>
+                            <th>Occupancy</th>
+                            <th>Status</th>
+                            <th class="button">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Room records will be inserted here dynamically -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><input type="text" id="RoomId" placeholder="Room ID"></td>
+                            <td><input type="text" id="RoomType" placeholder="Room Type"></td>
+                            <td><input type="text" id="RoomNumber" placeholder="Room Number"></td>
+                            <td><input type="text" id="Price" placeholder="Price"></td>
+                            <td><input type="text" id="Capacity" placeholder="Capacity"></td>
+                            <td><input type="text" id="Occupancy" placeholder="Occupancy"></td>
+                            <td><input type="text" id="Status" placeholder="Status"></td>
+                            <td><button onclick="addRoom()" class="btn btn-add">Add</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    </div>
+    <script>
+        // Initialize room data from local storage
+        var rooms = JSON.parse(localStorage.getItem('rooms')) || [];
+
+        // Function to display room records
+        function displayRooms() {
+            var tableBody = document.querySelector("#roomTable tbody");
+            tableBody.innerHTML = '';
+
+            rooms.forEach(function (room, index) {
+                var row = tableBody.insertRow();
+
+                // Create cells and populate them with room data
+                var idCell = row.insertCell(0);
+                idCell.textContent = room.roomId;
+
+                var typeCell = row.insertCell(1);
+                typeCell.textContent = room.roomType;
+
+                var numberCell = row.insertCell(2);
+                numberCell.textContent = room.roomNumber;
+
+                var priceCell = row.insertCell(3);
+                priceCell.textContent = room.price;
+
+                var capacityCell = row.insertCell(4);
+                capacityCell.textContent = room.capacity;
+
+                var occupancyCell = row.insertCell(5);
+                occupancyCell.textContent = room.occupancy;
+
+                var statusCell = row.insertCell(6);
+                statusCell.textContent = room.status;
+
+                // Action buttons for edit and delete
+                var actionsCell = row.insertCell(7);
+
+                var editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.classList.add("btn", "btn-edit");
+                editButton.onclick = function () { editRoom(index); };
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("btn", "btn-delete");
+                deleteButton.onclick = function () { deleteRoom(index); };
+
+                actionsCell.appendChild(editButton);
+                actionsCell.appendChild(deleteButton);
+            });
+        }
+
+        // Function to add a new room
+        function addRoom() {
+            var id = document.getElementById("RoomId").value;
+            var type = document.getElementById("RoomType").value;
+            var number = document.getElementById("RoomNumber").value;
+            var price = document.getElementById("Price").value;
+            var capacity = document.getElementById("Capacity").value;
+            var occupancy = document.getElementById("Occupancy").value;
+            var status = document.getElementById("Status").value;
+
+            // Validate inputs
+            if (id && type && number && price && capacity && occupancy && status) {
+                rooms.push({ roomId: id, roomType: type, roomNumber: number, price: price, capacity: capacity, occupancy: occupancy, status: status });
+                localStorage.setItem('rooms', JSON.stringify(rooms));
+                displayRooms();
+                // Clear input fields after adding a room
+                document.getElementById("RoomId").value = "";
+                document.getElementById("RoomType").value = "";
+                document.getElementById("RoomNumber").value = "";
+                document.getElementById("Price").value = "";
+                document.getElementById("Capacity").value = "";
+                document.getElementById("Occupancy").value = "";
+                document.getElementById("Status").value = "";
+            } else {
+                alert("Please enter all room details.");
+            }
+        }
+
+        // Function to edit an existing room
+        function editRoom(index) {
+            var row = document.querySelector("#roomTable tbody").rows[index];
+            // Assuming each cell contains an input field with class 'edit'
+            for (var i = 0; i < row.cells.length - 1; i++) {
+                var text = row.cells[i].textContent;
+                row.cells[i].innerHTML = '<input type="text" class="edit" value="' + text + '">';
+            }
+            var editButton = row.querySelector(".btn-edit");
+            var deleteButton = row.querySelector(".btn-delete");
+            editButton.style.display = "none";
+            deleteButton.style.display = "none";
+            var saveButton = document.createElement("button");
+            saveButton.textContent = "Save";
+            saveButton.classList.add("btn", "btn-save");
+            saveButton.onclick = function () { saveRoom(index); };
+            var cancelButton = document.createElement("button");
+            cancelButton.textContent = "Cancel";
+            cancelButton.classList.add("btn", "btn-cancel");
+            cancelButton.onclick = function () { cancelEditRoom(index); };
+            row.cells[row.cells.length - 1].appendChild(saveButton);
+            row.cells[row.cells.length - 1].appendChild(cancelButton);
+        }
+
+        // Function to save changes to an edited room
+        function saveRoom(index) {
+            var row = document.querySelector("#roomTable tbody").rows[index];
+            var inputs = row.querySelectorAll(".edit");
+            var updatedRoom = {
+                roomId: inputs[0].value,
+                roomType: inputs[1].value,
+                roomNumber: inputs[2].value,
+                price: inputs[3].value,
+                capacity: inputs[4].value,
+                occupancy: inputs[5].value,
+                status: inputs[6].value
+            };
+            rooms[index] = updatedRoom;
+            localStorage.setItem('rooms', JSON.stringify(rooms));
+            // Remove the input fields and display the updated room data
+            displayRooms();
+        }
+
+        // Function to cancel editing a room
+        function cancelEditRoom(index) {
+            displayRooms();
+        }
+
+        // Function to delete a room
+        function deleteRoom(index) {
+            rooms.splice(index, 1);
+            localStorage.setItem('rooms', JSON.stringify(rooms));
+            displayRooms();
+        }
+
+        // Initial display of room records
+        displayRooms();
+    </script>
+    </section>
+    </div>
+</body>
+
+</html>

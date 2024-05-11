@@ -1,0 +1,213 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(Reservationpage.png);
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(66, 57, 57, 0.692);
+}
+.reservation .container {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+option {
+  font-family: "Montserrat";
+}
+select {
+  font-family: "Montserrat";
+}
+input {
+  font-family: "Montserrat";
+}
+:placeholder-shown {
+  font-family: "Montserrat";
+}
+.reservation .container input {
+  height: fit-content;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+.previous-button {
+  color: white;
+  padding: 50px 20px;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 250px;
+  margin-top: 100px;
+}
+.reservation .container textarea {
+  height: fit-content;
+  width: 550px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: -1px;
+}
+.reservation .container select {
+  height: fit-content;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: -1px;
+}
+.reservation .container option {
+  height: fit-content;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: -1px;
+}
+.reservation .container .left {
+  margin-left: 20px;
+}
+.reservation .container .right {
+  margin-left: 320px;
+  margin-top: -160px;
+}
+.reservation .container .bottom {
+  margin-left: 320px;
+  margin-top: -160px;
+}
+.reservation .container .middle {
+  margin-left: 20px;
+}
+.reservation .container .parent {
+  margin-left: 20px;
+}
+.reservation .container .info {
+  margin-left: 20px;
+}
+.reservation .container p {
+  font-size: 15px;
+  font-family: "Montserrat";
+  width: 450px;
+  text-align: justify;
+  font-style: italic;
+}
+.reservation .container button {
+  background-color: #e0b973;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  margin-left: 20px;
+}
+.reservation .container .cancel {
+  margin-left: 390px;
+}
+.reservation .container .submit {
+  margin-left: 500px;
+  margin-top: -37px;
+}
+
+.footer {
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  padding-top: 30px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  width: 1918px;
+  height: 230px;
+  background: #14274a;
+  display: flex;
+  text-align: left;
+}
+.footer .footers img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.footer .footers {
+  margin-top: 0px;
+  text-align: center;
+  height: 230px;
+  display: flex;
+  text-align: left;
+  margin-right: 0px;
+  height: 100px;
+  width: 350px;
+}
+.footer .footers p {
+  line-height: 3px;
+}
+.footer p {
+  font-size: 14px;
+  line-height: 13px;
+}
+.footer .contact {
+  margin-top: 100px;
+  margin-left: -223px;
+  margin-right: 100px;
+  text-align: left;
+}
+.footer .contact p {
+  font-size: 14px;
+}
+.footer .explore p {
+  font-size: 14px;
+}
+.footer .explore {
+  margin-left: 150px;
+}
+.footer .fb {
+  margin-left: 150px;
+  font-weight: bolder;
+}
+.footer a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+.footer a:hover{
+  text-decoration: underline;
+}

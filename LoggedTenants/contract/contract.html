@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dorm 690 | Renew Contract</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+  <link rel="stylesheet" type="text/css" href="contact.css">
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!--SURNAME, FIRSTNAME-->
+  <!--DATE-->
+  <div class="intro">
+    <h1>Renew Contract</h1>
+    <p>Is your contract expiring soon? We'd love for you to stay with us longer. Renew your contract Now!!</p>
+  </div>
+  <div class="back">
+    <a href="../Homefolder/Home.html">
+      <img src="icons8-back-50.png" alt="Back" title="Go Back">
+    </a>
+    <a href="../Homefolder/Home.html" class="text">Back
+    </a>
+  </div>
+  <div class="Contract">
+    <div class="right">
+      <h1>How to Renew Your Contract</h1>
+      <ol>
+        <li>Renew your contract forty-five (45) days prior to the rent end date according to your current contract.</li>
+        <li>Click the button below to download the lease agreement file.</li>
+        <li>Fill up every blank space in the contract.</li>
+        <li>Do not forget to put your e-signature.</li>
+        <li>Upload the completed file below.</li>
+        <li>Wait for a confirmation email.</li>
+      </ol>
+      <a href="https://drive.google.com/file/d/1aU8tLELVfhaO0Hrc-gN0BwEJaFpUzRFr/view?usp=sharing" download="Contract"
+        target="_blank"><b>Download Lease Agreement Contract</b></a>
+    </div>
+    <div class="left">
+      <h5>UPLOAD THE COMPLETED CONTRACT</h5>
+      <h1>UPLOAD IT HERE!</h1>
+      <form action="" id="contract" enctype="multipart/form-data">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+
+        <label for="note">Note:</label><br>
+        <textarea id="note" name="note" rows="4" cols="50" placeholder="Note about your renewal of contract"
+          required></textarea><br><br>
+
+        <label for="file">Upload File:</label><br>
+        <input type="file" id="file" name="file" required accept=".pdf,.doc,.docx,.png"><br><br>
+        <!-- Limit accepted file types -->
+
+        <input type="submit" value="Submit" class="submit">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('contract').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      var formData = {
+        Name: document.getElementById('name').value,
+        Email: document.getElementById('email').value,
+        Note: document.getElementById('note').value,
+        File: document.getElementById('file').value,
+      };
+
+      // Retrieve existing data from localStorage or initialize an empty array
+      var contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+
+      // Add new form data to the array
+      contracts.push(formData);
+
+      // Save the updated array back to localStorage
+      localStorage.setItem('contracts', JSON.stringify(contracts));
+
+      alert("Contract Renewal Saved");
+
+      // Redirect to dashboard
+      window.location.href = '../Homefolder/Home.html';
+    });
+  </script>
+</body>
+
+</html>

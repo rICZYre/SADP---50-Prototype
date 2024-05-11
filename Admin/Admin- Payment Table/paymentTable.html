@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dorm 690 | Payment Table</title>
+    <link rel="icon" href="photos/Dorm 690 Logo 2.png" type="image/icon type">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100px;
+            display: inline-block;
+        }
+
+        table {
+            margin-top: 30px;
+            margin: auto;
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        th,
+        td {
+            font-size: 15px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #E0B973;
+            width: 200px;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            width: fit-content;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        .button {
+            width: 300px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+            width: 65px;
+
+        }
+
+        .btn-edit:hover,
+        .btn-add:hover,
+        .btn-delete:hover {
+            opacity: 0.9;
+        }
+
+        .btn-add {
+            background-color: #4CAF50;
+            color: white;
+            width: 65px;
+
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            width: 65px;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+        }
+
+        .btn-cancel {
+            background-color: #f44336;
+        }
+
+        .btn-update,
+        .btn-cancel-edit {
+            display: inline-block;
+        }
+
+        .edit-mode {
+            background-color: #f2f2f2;
+        }
+
+        .table-wrapper {
+            width: 90%;
+            width: 100%;
+            max-height: 500px;
+            /* Adjust the height as needed */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="dashboard.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">
+                        <img src="photos/Dorm 690 Logo 2.png" alt="">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+
+                <li><a href="../Admin - Dashboard/dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+
+                <li><a href="../Admin - TenantsAcounts/Accounts.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Tenants</span>
+                    </a></li>
+
+                <li><a href="../Admin - Accounts/AllAccounts.html">
+                        <i class="fas fa-address-book"></i>
+                        <span class="nav-item">Accounts</span>
+                    </a></li>
+
+                <li><a href="../Admin - Rooms/Rooms.html">
+                        <i class="fas fa-bed"></i>
+                        <span class="nav-item">Rooms</span>
+                    </a></li>
+
+                <li><a href="#" class="active">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Payment</span>
+                    </a></li>
+
+                <li><a href="../Admin - Reservation/Reservation.html">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-item">Reservations</span>
+                    </a></li>
+                <li><a href="../Admin - Contract/Contract.html">
+                        <i class="fas fa-file"></i>
+                        <span class="nav-item">Contract</span>
+                    </a></li>
+                <li><a href="../Admin - Sales/Sales.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Sales</span>
+                    </a></li>
+
+                <li><a href="../../TenantS/Homefolder/Home.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <h1>Payment Table</h1>
+            <div class="table-wrapper">
+                <table id="paymentTable">
+                    <thead>
+                        <tr>
+                            <th>Tenant ID</th>
+                            <th>Date</th>
+                            <th>Contact</th>
+                            <th>Amount Paid (PHP)</th>
+                            <th>Actions</th> <!-- Added Actions column -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Payment records will be inserted here dynamically -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><input type="text" id="tenantId" placeholder="Tenant ID"></td>
+                            <td><input type="date" id="date" placeholder="Date"></td>
+                            <td><input type="tel" id="contact" placeholder="Contact"></td>
+                            <td><input type="number" id="amountPaid" placeholder="Amount Paid (PHP)"></td>
+                            <td><button onclick="addPayment()" class="btn btn-add">Add</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    </div>
+    <script>
+        // Initialize payment data from local storage
+        var payments = JSON.parse(localStorage.getItem('payments')) || [];
+
+        // Function to display payment records
+        function displayPayments() {
+            var tableBody = document.querySelector("#paymentTable tbody");
+            tableBody.innerHTML = '';
+
+            payments.forEach(function (payment, index) {
+                var row = tableBody.insertRow();
+
+                // Create cells and populate them with payment data
+                var idCell = row.insertCell(0);
+                idCell.textContent = payment.tenantId;
+
+                var dateCell = row.insertCell(1);
+                dateCell.textContent = payment.date;
+
+                var contactCell = row.insertCell(2);
+                contactCell.textContent = payment.contact;
+
+                var amountCell = row.insertCell(3);
+                amountCell.textContent = payment.amountPaid;
+
+                // Action buttons for edit and delete
+                var actionsCell = row.insertCell(4);
+
+                var editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.classList.add("btn", "btn-edit");
+                editButton.onclick = function () { editPayment(index); };
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("btn", "btn-delete");
+                deleteButton.onclick = function () { deletePayment(index); };
+
+                actionsCell.appendChild(editButton);
+                actionsCell.appendChild(deleteButton);
+            });
+        }
+
+        // Function to add a new payment
+        function addPayment() {
+            var id = document.getElementById("tenantId").value;
+            var date = document.getElementById("date").value;
+            var contact = document.getElementById("contact").value;
+            var amountPaid = document.getElementById("amountPaid").value;
+
+            // Validate inputs
+            if (id && date && contact && amountPaid) {
+                payments.push({ tenantId: id, date: date, contact: contact, amountPaid: amountPaid });
+                localStorage.setItem('payments', JSON.stringify(payments));
+                displayPayments();
+                // Clear input fields after adding a payment
+                document.getElementById("tenantId").value = "";
+                document.getElementById("date").value = "";
+                document.getElementById("contact").value = "";
+                document.getElementById("amountPaid").value = "";
+            } else {
+                alert("Please enter all payment details.");
+            }
+        }
+
+        // Function to edit an existing payment
+        function editPayment(index) {
+            var row = document.querySelector("#paymentTable tbody").rows[index];
+            // Assuming each cell contains an input field with class 'edit'
+            for (var i = 0; i < row.cells.length - 1; i++) {
+                var text = row.cells[i].textContent;
+                row.cells[i].innerHTML = '<input type="text" class="edit" value="' + text + '">';
+            }
+            var editButton = row.querySelector(".btn-edit");
+            var deleteButton = row.querySelector(".btn-delete");
+            editButton.style.display = "none";
+            deleteButton.style.display = "none";
+            var saveButton = document.createElement("button");
+            saveButton.textContent = "Save";
+            saveButton.classList.add("btn", "btn-save");
+            saveButton.onclick = function () { savePayment(index); };
+            var cancelButton = document.createElement("button");
+            cancelButton.textContent = "Cancel";
+            cancelButton.classList.add("btn", "btn-cancel");
+            cancelButton.onclick = function () { cancelEditPayment(index); };
+            row.cells[row.cells.length - 1].appendChild(saveButton);
+            row.cells[row.cells.length - 1].appendChild(cancelButton);
+        }
+
+        // Function to save changes to an edited payment
+        function savePayment(index) {
+            var row = document.querySelector("#paymentTable tbody").rows[index];
+            var inputs = row.querySelectorAll(".edit");
+            var updatedPayment = {
+                tenantId: inputs[0].value,
+                date: inputs[1].value,
+                contact: inputs[2].value,
+                amountPaid: inputs[3].value
+            };
+            payments[index] = updatedPayment;
+            localStorage.setItem('payments', JSON.stringify(payments));
+            // Remove the input fields and display the updated payment data
+            displayPayments();
+        }
+
+        // Function to cancel editing a payment
+        function cancelEditPayment(index) {
+            displayPayments();
+        }
+
+        // Function to delete a payment
+        function deletePayment(index) {
+            payments.splice(index, 1);
+            localStorage.setItem('payments', JSON.stringify(payments));
+            displayPayments();
+        }
+
+        // Initial display of payment records
+        displayPayments();
+    </script>
+
+    </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100px;
+            display: inline-block;
+        }
+
+        table {
+            margin-top: 30px;
+            margin: auto;
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        th,
+        td {
+            font-size: 15px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #E0B973;
+            width: 200px;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            width: fit-content;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        .button {
+            width: 300px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn-edit,
+        .btn-notify {
+            background-color: #4CAF50;
+            color: white;
+            width: 40px;
+            height: 30px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn-view {
+            background-color: #00bbff;
+            color: white;
+            width: 40px;
+            height: 30px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn-print {
+            background-color: #00bbff;
+            color: white;
+            border-radius: 5px;
+            margin: 5px;
+            width: 40px;
+            height: 30px;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            width: 65px;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+        }
+
+        .btn-cancel {
+            background-color: #f44336;
+        }
+
+        .btn-update,
+        .btn-cancel-edit {
+            display: inline-block;
+        }
+
+        .edit-mode {
+            background-color: #f2f2f2;
+        }
+
+        .table-wrapper {
+            width: 90%;
+            width: 100%;
+            max-height: 500px;
+            /* Adjust the height as needed */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Dorm 690 | Contract Table</title>
+    <link rel="icon" href="photos/Dorm 690 Logo 2.png" type="image/icon type">
+    <link rel="stylesheet" href="contract.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">
+                        <img src="photos/Dorm 690 Logo 2.png" alt="">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+                <li><a href="../Admin - Dashboard/dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                <li><a href="../Admin - TenantsAcounts/Accounts.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Tenants</span>
+                    </a></li>
+                <li><a href="../Admin - Accounts/AllAccounts.html">
+                        <i class="fas fa-address-book"></i>
+                        <span class="nav-item">Accounts</span>
+                    </a></li>
+                <li><a href="../Admin - Rooms/Rooms.html">
+                        <i class="fas fa-bed"></i>
+                        <span class="nav-item">Rooms</span>
+                    </a></li>
+                <li><a href="../Admin- Payment Table/paymentTable.html">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Payment</span>
+                    </a></li>
+                <li><a href="../Admin - Reservation/Reservation.html">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-item">Reservations</span>
+                    </a></li>
+                <li><a href="#" class="active">
+                        <i class="fas fa-file"></i>
+                        <span class="nav-item">Contract</span>
+                    </a></li>
+                <li><a href="../Admin - Sales/Sales.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Sales</span>
+                    </a></li>
+                <li><a href="../../TenantS/Homefolder/Home.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>Contract Table</h1>
+            </div>
+            <div class="table-wrapper">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Note</th>
+                            <th>Contract File</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contractData"></tbody>
+                </table>
+            </div>
+            <script>
+                // Function to load data from localStorage and display it in the table
+                function loadContracts() {
+                    var contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+                    var tableBody = document.getElementById('contractData');
+                    tableBody.innerHTML = '';
+
+                    contracts.forEach(function (contract) {
+                        var row = tableBody.insertRow();
+                        row.insertCell(0).textContent = contract.Name;
+                        row.insertCell(1).textContent = contract.Email;
+                        row.insertCell(2).textContent = contract.Note;
+                        row.insertCell(3).textContent = contract.File;
+
+                        var actionCell = row.insertCell(4);
+                        var printBtn = document.createElement('buttons');
+                        printBtn.innerHTML = '<i class="fas fa-download"></i>'; // Changed the icon to a download icon
+                        printBtn.classList.add('btn-print');
+                        printBtn.addEventListener('click', function () {
+                            // Add download functionality here
+                            var contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+                            var contract = contracts[row.rowIndex - 1]; // Adjusting row index since it starts from 1
+                            var downloadLink = document.createElement('a');
+                            downloadLink.href = 'https://drive.google.com/file/d/1aU8tLELVfhaO0Hrc-gN0BwEJaFpUzRFr/view?usp=sharing';
+                            downloadLink.download = 'Contract.pdf'; // You can set the desired filename here
+                            downloadLink.click();
+                        });
+                        actionCell.appendChild(printBtn);
+
+
+                        var editBtn = document.createElement('button');
+                        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+                        editBtn.classList.add('btn-edit');
+                        editBtn.addEventListener('click', function () {
+                            // Toggle edit mode for the row
+                            row.classList.toggle('edit-mode');
+
+                            if (row.classList.contains('edit-mode')) {
+                                // Enter edit mode: Replace text content with input fields for editing
+                                for (var i = 0; i < row.cells.length - 1; i++) { // Excluding the last cell (actions)
+                                    var cell = row.cells[i];
+                                    var text = cell.textContent;
+                                    cell.innerHTML = '<input type="text" value="' + text + '">';
+                                }
+                            } else {
+                                // Exit edit mode: Update contract information and display it
+                                var inputs = row.querySelectorAll('input');
+                                var updatedContract = {
+                                    Name: inputs[0].value,
+                                    Email: inputs[1].value,
+                                    Note: inputs[2].value,
+                                    File: inputs[3].value // Assuming File is editable, change this accordingly if not
+                                };
+
+                                // Update the contract in local storage
+                                var contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+                                contracts[row.rowIndex - 1] = updatedContract; // Adjusting row index since it starts from 1
+                                localStorage.setItem('contracts', JSON.stringify(contracts));
+
+                                // Display updated contract information
+                                for (var i = 0; i < inputs.length; i++) {
+                                    var input = inputs[i];
+                                    row.cells[i].textContent = input.value;
+                                }
+                            }
+                        });
+                        actionCell.appendChild(editBtn);
+
+                        var viewBtn = document.createElement('button');
+                        viewBtn.innerHTML = '<i class="fas fa-eye"></i>';
+                        viewBtn.classList.add('btn-view');
+                        viewBtn.addEventListener('click', function () {
+                            // Add view functionality here
+                            window.open(contract.File, '_blank');
+                        });
+                        actionCell.appendChild(viewBtn)
+
+                        var notifyBtn = document.createElement('button');
+                        notifyBtn.innerHTML = '<i class="fas fa-bell"></i>';
+                        notifyBtn.classList.add('btn-notify');
+                        notifyBtn.addEventListener('click', function () {
+                            // Add notification functionality here
+                            // For example, trigger a notification to tenants
+                            alert('Notification sent to ' + contract.Email);
+                        });
+                        actionCell.appendChild(notifyBtn);
+
+                        // var deleteBtn = document.createElement('button');
+                        // deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                        // deleteBtn.classList.add('btn-delete');
+                        // deleteBtn.addEventListener('click', function () {
+                        //     // Remove contract from localStorage
+                        //     contracts.splice(index, 1);
+                        //     localStorage.setItem('contracts', JSON.stringify(contracts));
+                        //     // Remove row from table
+                        //     tableBody.removeChild(row);
+                        // });
+                        // actionCell.appendChild(deleteBtn);
+                        // deleteBtn.addEventListener('click', function () {
+                        //     // Get the index of the row
+                        //     var index = row.rowIndex - 1;
+
+                        //     // Remove contract from localStorage
+                        //     var contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+                        //     contracts.splice(index, 1);
+                        //     localStorage.setItem('contracts', JSON.stringify(contracts));
+
+                        //     // Remove row from table
+                        //     tableBody.removeChild(row);
+                        // });
+
+                    });
+                }
+
+                // Load data on page load
+                window.onload = loadContracts;
+            </script>
+
+        </section>
+    </div>
+
+
+</body>
+
+</html>

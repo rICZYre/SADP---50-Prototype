@@ -1,0 +1,361 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Dorm 690 | Rooms</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+  <style type="text/css"></style>
+</head>
+
+<body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/adobe-garamond-pro-2" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="Rates.css" />
+  <div class="home">
+    <div class="header">
+      <img src="Logo.png" alt="logo" />
+      <div>
+        <p style="margin-top: 50px; font-size: 30px; font-size: 'Montserrat'">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+      </div>
+      <div class="navbar">
+        <a href="../Homefolder/Home.html" class="active">Home</a>
+        <a href="../aboutfolder/About.html">About</a>
+        <a href="../roomsfolder/Room.html">Rooms</a>
+        <a href="../amenities/amenities.html">Amenities </a>
+        <a href="Rates.html"><b><u>Rates</u></b></a>
+        <a href="../contactfolder/Contact.html">Contact</a>
+        <a href="../faqsfolder/Faqs.html">FAQs</a>
+        <a href="../reservefolder/FormReservation.html" class="Reserve">RESERVE NOW</a>
+        <a onclick="openPopup()" class="SignIn">Log In</a>
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------log in popup---------------------------------------------------------------------- -->
+  <div id="loginPopup" class="main">
+    <div class="body">
+      <form id="form">
+        <div class="login-text">
+          <a onclick="closePopup()" class="previous-button">
+            <img src="icons8-x-button-64.png" alt="">
+          </a>
+          <script>
+            // JavaScript function to go to the previous page
+            function goToPreviousPage() {
+              window.history.back(); // This will take the user to the previous page in the browser history
+            }
+          </script>
+          <p style="margin-top: -30px;">DORM 690 LOGIN</p>
+        </div>
+        <div class="welcome-text">
+          <h1>WELCOME!</h1>
+          <hr size="5" color="#9F662E" align="left" width="27%">
+        </div>
+        <div class="user-pass">
+          <p>Username</p>
+          <input type="text" id="userName" name="userName" placeholder="Enter Username">
+        </div>
+        <div class="user-pass">
+          <p>Password</p>
+          <input type="password" id="passWord" name="passWord" placeholder="Enter Password">
+        </div>
+        <!-- Dropdown for selecting user type -->
+        <div class="user-pass">
+          <p>User Type</p>
+          <select id="type" name="type" required>
+            <option value="Select">Select</option>
+            <option value="tenant">Tenant</option>
+            <option value="admin">Admin</option>
+          </select>
+          <br>
+          <a href="../signinfolder/tenant-SignUp.html" class="create">Create Account</a>
+        </div>
+
+        <div style="display: flex;">
+          <button type="submit" class="loginbtn">Log In</button>
+          <a onclick="closePopup()" class="tenant-cancel">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var userName = document.getElementById("userName").value;
+      var passWord = document.getElementById("passWord").value;
+      var userType = document.getElementById("type").value; // Get selected user type
+      var storedUserData = JSON.parse(localStorage.getItem("TenantForms"));
+      if (storedUserData) {
+        var foundUser = storedUserData.find(function (user) {
+          return user.userName === userName && user.passWord === passWord && user.type === userType; // Check user type as well
+        });
+        if (foundUser) {
+          localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+          alert("Login successful!");
+
+          // Redirect based on user type
+          if (userType === "tenant") {
+            window.location.href = "../../LoggedTenants/Homefolder/Home.html"; // Redirect to tenant details
+          } else if (userType === "admin") {
+            window.location.href = "../../Admin/Admin - Dashboard/dashboard.html"; // Redirect to admin dashboard
+          }
+        } else {
+          alert("Invalid username, password, or user type. Please try again.");
+        }
+      } else {
+        alert("No user found. Please register first.");
+      }
+    });
+  </script>
+  <!-------------------------------------------------------------------------------------------------------------------------->
+  <div class="background"></div>
+
+  <div class="info">
+    <br><br><br>
+    <div class="title">
+      <p style="font-size: 20px; padding-bottom: 10px">
+        <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+      </p>
+      <h3 style="font-family: 'Adobe Garamond Pro'">Room Inclusions</h3>
+      <hr align="left" size="3" width="5%" color="#9F662E" />
+    </div>
+    <div>
+      <table>
+        <tr style="background-color: #D9B897;">
+          <th></th>
+          <th>Standard Rooms</th>
+          <th>Air-conditioned <br> Rooms</th>
+          <th>Premium Rooms</th>
+          <th>Private Rooms</th>
+        </tr>
+        <tr>
+          <td style="background-color: #D9B897; margin-top: 10px;">Bed with Mattress</td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+        </tr>
+        <tr>
+          <td style="background-color: #D9B897;">Study Area</td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+        </tr>
+        <tr>
+          <td style="background-color: #D9B897;">Cabinets</td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+        </tr>
+        <tr>
+          <td style="background-color: #D9B897;">Private Bathroom</td>
+          <td style="background-color: #FFF;"></td>
+          <td style="background-color: #FFF;"></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+        </tr>
+        <tr>
+          <td style="background-color: #D9B897;">Bed Space</td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF;"><img src="photos/Check.png" alt=""></td>
+          <td style="background-color: #FFF; border-radius: 0 0 30px 0;"></td>
+        </tr>
+      </table>
+      <br><br><br>
+    </div>
+
+    <div style="margin-bottom: 0px;" class="title">
+      <p style="font-size: 20px; padding-bottom: 10px">
+        <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+      </p>
+      <h3 style="font-family: 'Adobe Garamond Pro'; margin-bottom: 3px;">Additional Fees</h3>
+      <hr align="left" size="3" width="5%" color="#9F662E" />
+    </div>
+    <p style="
+        text-align: center;
+        font-family: Montserrat;">
+      Elevate your living experience with our Premium Rooms, featuring enhanced amenities and stylish design.</p><br>
+    <table class="table2" style="margin-left: 400px;">
+      <tr>
+        <th style="background-color: #D9B897;">Appliances </th>
+        <th style="background-color: #D9B897;">Fees</th>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black;">Television</td>
+        <td style="background-color: #FFF; color: black;">P250.00</td>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black;">Laptop</td>
+        <td style="background-color: #FFF; color: black;">P300.00</td>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black;">Electric Fan</td>
+        <td style="background-color: #FFF; color: black;">P200.00</td>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black;">Lampshade</td>
+        <td style="background-color: #FFF; color: black;">P150.00</td>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black;">Ipad / Tablet</td>
+        <td style="background-color: #FFF; color: black;">P250.00</td>
+      </tr>
+      <tr>
+        <td style="background-color: #FFF; color: black; border-radius: 0 0 0 30px;">Radio</td>
+        <td style="background-color: #FFF; color: black; border-radius: 0 0 30px 0;">P150.00</td>
+      </tr>
+    </table>
+    <br><br><br>
+    <div style="margin-bottom: 0px;" class="title">
+      <p style="font-size: 20px; padding-bottom: 10px">
+        <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+      </p>
+      <h3 style="font-family: 'Adobe Garamond Pro'">Room Rates</h3>
+      <hr align="left" size="3" width="5%" color="#9F662E" />
+    </div>
+    <p style="
+        text-align: center;
+        font-family: Montserrat;">
+      prices may change without prior notice.</p><br>
+    <table class="table2" style="margin-left: 400px;">
+
+
+      <div class="roomRates">
+        <div style="display: flex; justify-content: center;">
+          <div>
+            <div>
+              <h1
+                style="text-align: center; background-color: #D9B897; margin: 0 50px 0 0; padding: 20px 20px 20px 20px; font-family: Montserrat; font-size: 15px; color: #FFF;">
+                Standard Rooms</h1>
+            </div>
+            <div class="room">
+
+              <div style="display: flex; ">
+                <h2>P2,700</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 4pax</p>
+              </div>
+              <div style="display: flex;">
+                <h2>P2,400 </h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 6pax</p>
+              </div>
+              <div style="display: flex;">
+                <h2>P2,200</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 8pax</p>
+              </div>
+              <p style="line-height: 45px; text-align: center;">Bed with Mattress <br>
+                Study Area <br>
+                Cabinets</p>
+
+            </div>
+          </div>
+          <div>
+            <div>
+              <h1
+                style="text-align: center; background-color: #D9B897; margin: 0 50px 0 0; padding: 20px 20px 20px 20px; font-family: Montserrat; font-size: 15px; color: #FFF;">
+                Air-conditioned Rooms</h1>
+            </div>
+
+
+            <div class="room" style="padding-bottom: 58px;">
+
+              <div style="display: flex;">
+                <h2>P3,800</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 4pax</p>
+              </div>
+              <div style="display: flex;">
+                <h2>P3,500</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 6pax</p>
+              </div>
+              <p style="line-height: 45px; text-align: center;">Air-Conditioned <br>
+                Bed with Mattress <br>
+                Study Area <br>
+                Cabinets</p>
+            </div>
+          </div>
+          <div>
+            <div>
+              <h1
+                style="text-align: center; background-color: #D9B897; margin: 0 50px 0 0; padding: 20px 20px 20px 20px; font-family: Montserrat; font-size: 15px; color: #FFF;">
+                Premium Rooms</h1>
+            </div>
+
+            <div class="room" style="padding-bottom: 110px;">
+              <div style="display: flex;">
+                <h2>P4,800</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 4pax</p>
+              </div>
+              <p style="line-height: 45px; text-align: center;">Air-Conditioned <br>
+                Bed with Mattress<br>
+                Study Area<br>
+                Cabinets<br>
+                Private Bathroom</p>
+
+            </div>
+          </div>
+          <div>
+            <div>
+              <h1
+                style="text-align: center; background-color: #D9B897; margin: 0 50px 0 0; padding: 20px 20px 20px 20px; font-family: Montserrat; font-size: 15px; color: #FFF;">
+                Private Rooms</h1>
+            </div>
+
+            <div class="room" style="padding-bottom: 90px;">
+              <div style="display: flex;">
+                <h2>P13,000</h1>
+                  <p style="margin-top: 40px; color: #817F7C;">/ month <br>/ 4 pax <br>MAX</p>
+
+              </div>
+              <p style="line-height: 45px; text-align: center;"> Air-Conditioned<br>
+                Bed with Mattress<br>
+                Study Area<br>
+                Cabinets<br>
+                Private Bathroom</p>
+            </div>
+          </div>
+        </div>
+        <br><br><br><br><br><br>
+
+      </div>
+  </div>
+
+  <div class="footer">
+    <div class="footers">
+      <img src="Logo.png" alt="logo" />
+      <div>
+        <p style="margin-top: 40px; font-size: 30px">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+        <p>Live comfortably</p>
+      </div>
+    </div>
+    <div class="adress">
+      <h4>Our Address</h4>
+      <p>690 Gastambide St. (Dalupan St. ),</p>
+      <p>Sampaloc, Manila, Philippines</p>
+    </div>
+    <div class="contact">
+      <h4>Contact Us</h4>
+      <p>(02) 736 6898</p>
+      <p>dorm690@gmail.com</p>
+    </div>
+    <div class="explore">
+      <h4>Explore Our Site</h4>
+      <p><a href="../aboutfolder/About.html">About Us</a></p>
+      <p><a href="../roomsfolder/Room.html">Rooms</a></p>
+      <p><a href="../contactfolder/Contact.html">Contact</a></p>
+      <p><a href="../signinfolder/LOGINPAGE.html">Sign In</a></p>
+    </div>
+    <div class="fb">
+      <p><a href="https://www.facebook.com/dorm690manila" target="_blank"><b>f</b> Facebook</a></p>
+    </div>
+  </div>
+</body>
+
+</html>

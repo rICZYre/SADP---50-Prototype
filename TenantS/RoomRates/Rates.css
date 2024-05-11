@@ -1,0 +1,489 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+  }
+  .header {
+    display: flex;
+    background-color: #e0b973;
+  }
+  .header p {
+    text-align: left;
+    padding-right: 50px;
+    font-family: "Adobe Garamond Pro";
+    font-weight: bolder;
+    max-width: 150px;
+    line-height: 0px;
+    color: white;
+    margin-top: 25px;
+    width: 300px;
+  }
+  .header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-left: 60px;
+  }
+  .navbar {
+    overflow: hidden;
+    display: flex;
+    margin-left: 30px;
+    line-height: 5px;
+    margin-top: -20px;
+  }
+  .navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    margin-top: 70px;
+    position: static;
+    font-family: "Montserrat";
+    font-size: 17px;
+  }
+  .navbar a:hover {
+    color: black;
+  }
+  .navbar .Reserve {
+    background-color: #e0b973;
+    height: 25px;
+    color: white;
+    padding-bottom: -10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -30px;
+    margin-top: 50px;
+  }
+  
+  /*-----------------------------------------------------------Log in PopUP------------------------------------------------- */
+  .main {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 80%;
+    height: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    padding-bottom: 50%;
+    padding-right: 20%;
+    padding-left: 1%;
+    margin: auto;
+  }
+  option {
+    font-family: "Montserrat";
+  }
+  select {
+    font-family: "Montserrat";
+  }
+  input {
+    font-family: "Montserrat";
+  }
+  :placeholder-shown {
+    font-family: "Montserrat";
+  }
+  .navbar .SignIn {
+    background-color: white;
+    height: 25px;
+    color: #e0b973;
+    padding-bottom: -10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -30px;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+  .body{
+      margin-left: 32%;
+      background-color: white;
+      border-radius: 20px;
+      margin-top: 50px;
+      height: fit-content;
+      width: 550px;
+      box-shadow: 5px 7px 10px rgb(77, 75, 75);
+      padding-bottom: 20px;
+  }
+  .previous-button {
+    color: white;
+    border: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 470px;
+    margin-top: 100px;
+  }
+  .previous-button img{
+    width: 30px;
+    height: 30px;
+  }
+  .login-text{
+      font-size: 30px;
+      font-weight: 700;
+      color: #5D5B5B;
+      padding-top: 10px;
+      padding-left: 25px;
+  }
+  .welcome-text{
+      font-size: 20px;
+      margin-top: -30px;
+      letter-spacing: 5px;
+      padding-left: 25px;
+  }
+  .welcome-text hr{
+      margin-top: -20px;
+  }
+  .user-pass {
+      font-size: 20px;
+      font-weight: bold;
+      padding-left: 25px;
+  }
+  .user-pass p {
+      margin-bottom: 10px;
+  }
+  .Name {
+      font-size: 20px;
+      font-weight: bold;
+      padding-left: 25px;
+      margin-top: 20px;
+      display: flex;
+      height: 75px;
+  }
+  
+  .Name .firstName label {
+      margin-bottom: 5px;
+      width: 300px;
+      height: 50px;
+      margin-bottom: 10px;
+  }
+  .Name .firstName input{
+      margin-top: 10px;
+      margin-bottom: 10px;
+  
+  }
+  .Name .lastName label {
+      margin-bottom: 15px;
+      width: 300px;
+      height: 50px;
+      margin-bottom: 10px;
+  }
+  .Name .lastName input{
+      margin-top: 10px;
+      margin-bottom: 10px;
+  
+  }
+  #firstName {
+      height: fit-content;
+      width: 230px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  
+  }
+  #lastName {
+      height: fit-content;
+      width: 230px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  }
+  #email {
+      height: fit-content;
+      width: 495px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  }
+  #userName {
+      height: fit-content;
+      width: 495px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  }
+  #passWord {
+      height: fit-content;
+      width: 495px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 0px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  }
+  #confirmPassWord {
+      height: fit-content;
+      width: 495px;
+      padding: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #B5B5B6;
+      border-radius: 2px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 5px;
+  }
+  .create{
+    font-weight: normal; 
+    font-size: 15px; 
+    color: #9F662E; 
+    margin-top: -2px; 
+  }
+  .create:hover{
+    text-decoration: underline;
+  }
+  .loginbtn {
+    background-color: #E0B973;
+    color: white;
+    border: none;
+    padding: 5px 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    margin-top: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    margin-left: 270px;
+    cursor: pointer;
+  }
+  
+  .tenant-cancel {
+      background-color: #575b5f29;
+      color: rgb(63, 65, 67);
+      padding: 10px 30px;
+      border: none;
+      font-size: 15px;
+      border-radius: 5px;
+      display: flex;
+      width: 50px;
+      height: 5px;
+      text-align: center;
+      margin-top: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      padding-top: 5px;
+      padding-bottom: 20px;
+      margin-left: 30px;
+      cursor: pointer;
+  }
+  select {
+    height: fit-content;
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+      margin-right: -1px;
+  }
+  
+  
+  
+  
+  
+  /*----------------------------------------------------------------------------------------------------------------------- */
+  .background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('photos/room.jpg');
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(66, 57, 57, 0.692);
+  }
+  
+  
+  .info{
+    background-color: #F8EDD7;
+  }
+  .info .title {
+    line-height: 3px;
+    margin-bottom: 30px;
+    text-align: left;
+    margin-left: 620px;
+  
+    
+  }
+  .info .title h3 {
+    font-size: 30px;
+    height: fit-content;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    font-family: "Montserrat";
+    margin-left: 280px;
+  
+  }
+  
+  table td, th{
+    width: 170px;
+    height: 80px;
+    text-align: center;
+    color: #FFF;
+  }
+  table img{
+    width: 30px;
+    height: auto;
+  }
+  
+  .table2 th{
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    color: #FFF;
+  
+  }
+  .table2 td{
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    color: #FFF; 
+  }
+  
+  .roomRates {
+    margin-left: 50px;
+
+  }
+  .room{
+    background-color: #FFF;  
+    margin-right: 50px;
+    padding: 0px 40px 10px 40px;
+    
+  
+  }
+  .room p{
+    font-family: "Montserrat";
+    
+  }
+  
+  .room h1{
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #D9B897;
+    
+  
+  }
+  .room h2{
+    font-family: "Montserrat";
+    font-size: 30px;
+    color: #D9B897;
+  }
+  
+  .footer {
+    display: flex;
+    background: #14274a;
+    max-width: 100%;
+    color: #fff;
+    height: 230px;
+    line-height: 3px;
+    padding-top: 50px;
+  }
+  .footer .footers img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+  }
+  
+  .footer .footers {
+    margin-top: 0px;
+    text-align: center;
+    height: 230px;
+    display: flex;
+    text-align: left;
+    margin-right: 0px;
+    height: 100px;
+    width: 350px;
+  }
+  .footer .footers p {
+    line-height: 3px;
+  }
+  .footer .address {
+    font-family: "Montserrat";
+  }
+  .footer .contact {
+    margin-top: 100px;
+    margin-left: -270px;
+    margin-right: 100px;
+    text-align: left;
+    font-family: "Montserrat";
+  }
+  .footer .explore {
+    margin-left: 150px;
+    font-family: "Montserrat";
+  }
+  .footer .fb {
+    margin-left: 150px;
+    font-weight: bolder;
+    font-family: "Montserrat";
+  }
+  .footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  .footer a:hover{
+    text-decoration: underline;
+  }

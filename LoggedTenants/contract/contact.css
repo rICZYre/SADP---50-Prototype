@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+option {
+  font-family: "Montserrat";
+}
+select {
+  font-family: "Montserrat";
+}
+input {
+  font-family: "Montserrat";
+  margin-bottom: -50px;
+}
+label{
+  margin-bottom: -10px;
+}
+:placeholder-shown {
+  font-family: "Montserrat";
+}
+.intro{
+  background-color: #e0b973;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: white;
+}
+.Contract h1,h2,h5{
+  font-family: "Montserrat";
+
+}
+.intro h1{
+  font-family: "Montserrat";
+  margin-top: 0px;
+  font-size: 40px;
+}
+.Contract{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 50px;
+}
+.Contract h1,h2,h5{
+  font-family: "Montserrat";
+
+}
+.right{
+  margin-top: 20px;
+  margin-left: 30px;
+  flex-grow: 1;
+  flex-basis: 200;
+  width: 45%;
+  padding: 20px;
+  line-height: 25px;
+}
+.left{
+  flex-grow: 1;
+  flex-basis: 200;
+  width: 45%;
+}
+.right a{
+  background-color: #e0b973;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin-left: 15%;
+}
+.left input{
+  width: 90%;
+  height: fit-content;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+.left textarea{
+  width: 90%;
+  height: fit-content;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+.left h1{
+  margin-top: 0px;
+}
+.left h5{
+  margin-bottom: 0px;
+}
+
+.submit{
+  background-color: #e0b973;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back{
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.back img {
+  width: 20px;
+  margin-bottom: -3px;
+}
+.back img:hover {
+  opacity: 0.85;
+}
+a{
+  text-decoration: none;
+}
+.back .text{
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  margin-left: -5px;
+}
+.back .text:hover{
+  text-decoration: underline;
+}

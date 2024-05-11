@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="BillingHistory.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm 690 | Billing History</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+</head>
+
+<body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <header>
+    <h1>Billing Statement</h1>
+    <p>Here is your billing history, go check it now!</p>
+  </header>
+
+  <div class="notification-icon">
+    <img src="bell.png" alt="Notification Bell" width="30" height="30">
+    <div class="notification-indicator">1</div>
+  </div>
+
+  <div class="notification-text">
+    <h3>Update from you by Dorm 690</h3>
+    <p><b>2024-3-31:</b> The dormitory contract is almost due! Please make sure to renew it before the expiration date
+      to avoid any inconvenience.</p>
+  </div>
+  <!-- <div class="back">
+    <a href="../Homefolder/Home.html">
+      <img src="icons8-back-50.png" alt="Back" title="Go Back">
+    </a>
+    <a href="../Homefolder/Home.html" class="texts">Back
+    </a>
+  </div> -->
+  <div class="text">
+    <hr align="left" color="#e0b973">
+    <h1>BILLING STATEMENT</h1>
+  </div>
+  <div class="table">
+    <table border="1">
+      <tr>
+        <th>Bill to</th>
+        <td id="userInfo"></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <th>Date Paid</th>
+        <th>Mode of Payment</th>
+        <th>Reference Number</th>
+        <th>Amount Paid (PHP)</th>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>2024-3-31</td>
+        <td>Over-the-counter</td>
+        <td>1231001</td>
+        <td>3,000</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>2024-4-1</td>
+        <td>Over-the-counter</td>
+        <td>1231002</td>
+        <td>5,000</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>2024-4-2</td>
+        <td>Over-the-counter</td>
+        <td>1231003</td>
+        <td>6,000</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>2024-4-3</td>
+        <td>Over-the-counter</td>
+        <td>1231004</td>
+        <td>9,000</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>2024-4-7</td>
+        <td>Over-the-counter</td>
+        <td>1231005</td>
+        <td>19,000</td>
+      </tr>
+    </table>
+  </div>
+  <div class="back">
+    <a href="../Homefolder/Home.html">
+      <img src="icons8-back-50.png" alt="Back" title="Go Back">
+    </a>
+    <a href="../Homefolder/Home.html" class="texts">Back
+    </a>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (loggedInUser) {
+        var userInfoContainer = document.getElementById("userInfo");
+        var fullName = loggedInUser.firstName + " " + loggedInUser.lastName;
+        userInfoContainer.innerHTML = "<p>" + fullName + "<p>";
+
+      }
+    });
+  </script>
+</body>
+
+</html>

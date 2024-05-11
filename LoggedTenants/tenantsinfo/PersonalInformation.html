@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="PersonalInformation.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm 690 | Profile Information</title>
+  <style>
+    p {
+      height: -30px;
+    }
+  </style>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+</head>
+
+<body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <header>
+    <h1>Profile Information</h1>
+    <p>Here is your full information from your registered account, check it!</p>
+  </header>
+
+  <div class="notification-icon">
+    <img src="bell.png" alt="Notification Bell" width="30" height="30">
+    <div class="notification-indicator">1</div>
+  </div>
+
+  <div class="notification-text">
+    <h3>Update from you by Dorm 690</h3>
+    <p><b>2024-3-31:</b> The dormitory contract is almost due! Please make sure to renew it before the expiration date
+      to avoid any inconvenience.</p>
+  </div>
+  <!-- <div class="back">
+    <a href="../Homefolder/Home.html">
+      <img src="icons8-back-50.png" alt="Back" title="Go Back">
+    </a>
+    <a href="../Homefolder/Home.html" class="texts">Back
+    </a>
+  </div> -->
+  <div class="text">
+    <hr align="left" color="#e0b973">
+    <h1>PROFILE INFORMATION</h1>
+  </div>
+
+  <div class="table">
+    <table border="1">
+      <tr class="personal-info-header">
+        <th colspan="2">Personal Information</th> <!-- colspan="2" spans across both columns -->
+      </tr>
+      <tr>
+        <th>Full Name</th>
+        <td id="userInfo"></td>
+      </tr>
+      <tr>
+        <th>Tenant ID</th>
+        <td>1001</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td id="userEmail"></td>
+      </tr>
+      <tr>
+        <th>Personal Contact</th>
+        <td>09991234567</td>
+      </tr>
+      <tr>
+        <th>Emergency Contact</th>
+        <td>09191921212</td>
+      </tr>
+      <tr>
+        <th>Dormitory Room Assigned</th>
+        <td>Standard Room</td>
+      </tr>
+    </table>
+  </div>
+  <div class="back">
+    <a href="../Homefolder/Home.html">
+      <img src="icons8-back-50.png" alt="Back" title="Go Back">
+    </a>
+    <a href="../Homefolder/Home.html" class="texts">Back
+    </a>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (loggedInUser) {
+        var userInfoContainer = document.getElementById("userInfo");
+        var fullName = loggedInUser.firstName + " " + loggedInUser.lastName;
+        userInfoContainer.innerHTML = "<p>" + fullName + "<p>";
+
+        var userInfoContainer = document.getElementById("userEmail");
+        var Email = loggedInUser.email;
+        userInfoContainer.innerHTML = "<p>" + Email + "<p>";
+      }
+    });
+  </script>
+</body>
+
+</html>

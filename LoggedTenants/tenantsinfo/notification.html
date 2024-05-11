@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dormitory Notification</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .notification-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .notification-icon:hover .notification-indicator {
+    display: none;
+  }
+
+  .notification-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .notification-text {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .notification-icon:hover + .notification-text,
+  .notification-text:hover {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="notification-icon">
+  <img src="bell_icon.png" alt="Notification Bell" width="30" height="30">
+  <div class="notification-indicator">2</div>
+</div>
+
+<div class="notification-text">
+  <h3>Messages from Dormitory Manager</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis velit nec risus gravida consequat.</p>
+  <p>Aliquam erat volutpat. Proin vitae odio eget lorem rutrum ullamcorper.</p>
+</div>
+
+<!-- Replace "bell_icon.png" with your actual bell icon image -->
+
+</body>
+</html>

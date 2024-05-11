@@ -1,0 +1,203 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Dorm 690 | Form Reservation</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+  <style type="text/css"></style>
+</head>
+
+<body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/adobe-garamond-pro-2" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="FormReservation.css" />
+  <div class="background"></div>
+  <br><br>
+  <div class="reservation">
+    <a onclick="goToPreviousPage()" class="previous-button">
+      <img src="icons8-x-button-64.png" alt="">
+    </a>
+    <script>
+      // JavaScript function to go to the previous page
+      function goToPreviousPage() {
+        window.history.back(); // This will take the user to the previous page in the browser history
+      }
+    </script>
+    <h1 style="margin-left: 400px; margin-bottom: 2px; margin-top: -50px;">Reserve Now!</h1>
+    <hr size="5" color="#9F662E" align="left" width="8%" style="margin-left: 400px" />
+
+    <form class="container" id="reservationForm">
+      <p style=" font-size: 20px; margin-left: 225px; margin-bottom: 5px; line-height: 10px; ">
+        <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+      </p>
+      <h1 style="text-align: center; margin-top: 5px">Reservation</h1>
+      <h2>1. Contact Information</h2>
+      <div class="left">
+        <div class="name">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your First Name" required />
+
+          <label for="contactNumber">Contact Number:</label>
+          <input type="tel" id="contactNumber" name="contactNumber" placeholder="Your Contact Number" required />
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="contact">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your Last Name" required />
+
+          <label for="emailAddress">Email Address:</label>
+          <input type="email" id="emailAddress" name="emailAddress" placeholder="Your Email Address" required />
+        </div>
+      </div>
+
+      <div class="middle">
+        <label for="address">Permanent/Provincial Address:</label>
+        <textarea id="address" name="address" placeholder="Your Address" required></textarea>
+
+        <label for="school">School:</label>
+        <input type="text" id="school" name="school" placeholder="Your Educational Institution" style="width: 550px"
+          required />
+      </div>
+      <div class="parent">
+        <label for="emergencyContact">Person to Contact in Case of <br> Emergency:</label>
+        <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Emergency Contact" required />
+
+        <label for="postalCode">Zip/Postal Code:</label>
+        <input type="text" id="postalCode" name="postalCode" placeholder="Enter Zip Code" required />
+      </div>
+      <div class="bottom">
+        <label for="relationship">Relationship:</label>
+        <input type="text" id="relationship" name="relationship" placeholder="Your Relationship" required />
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <h2>2. Room Information</h2>
+      <div class="info">
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType" required>
+          <option value="">Select Room Type</option>
+          <option value="Standard Room">Standard Room</option>
+          <option value="Air-conditioned Room">Air-conditioned Room</option>
+          <option value="Premium Room">Premium Room</option>
+          <option value="Private Rooms">Private Rooms</option>
+        </select>
+        <br />
+        <label for="moveInDateTime">Move in Time/Date:</label>
+        <input type="datetime-local" id="moveInDateTime" name="moveInDateTime" required />
+      </div>
+      <p>
+        Note: Please make your payment within 2 days after your reservation.
+        Failure to pay within the alotted days will result in <b>nullification</b> of
+        your reservation.
+      </p>
+      <br />
+      <button class="cancel" type="Cancel" style="background-color: #575b5f29">
+        <a href="../Homefolder/Home.html"
+          style=" text-decoration: none; color: rgb(63, 65, 67); padding-left: 7px; ">Cancel</a>
+      </button>
+      <button class="submit" type="submit" style="width: 130px; padding-left: 25px">
+        Reserve Now
+      </button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <div class="footers">
+      <img src="Logo.png" alt="logo" />
+      <div>
+        <p style="margin-top: 40px; font-size: 30px; font-family: 'Montserrat'">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+        <p style="font-family: 'Adobe Garamond Pro'">Live comfortably</p>
+      </div>
+    </div>
+    <div class="adress">
+      <h4 style="font-size: 16px">Our Address</h4>
+      <p style="font-size: 14px">690 Gastambide St. (Dalupan St. ),</p>
+      <p style="font-size: 14px">Sampaloc, Manila, Philippines</p>
+    </div>
+    <div class="contact">
+      <h4 style="font-size: 16px">Contact Us</h4>
+      <p style="font-size: 14px">(02) 736 6898</p>
+      <p style="font-size: 14px">dorm690@gmail.com</p>
+    </div>
+    <div class="explore">
+      <h4 style="font-size: 16px">Explore Our Site</h4>
+      <p style="font-size: 14px">
+        <a href="../aboutfolder/About.html">About Us</a>
+      </p>
+      <p style="font-size: 14px">
+        <a href="../roomsfolder/Room.html">Rooms</a>
+      </p>
+      <p style="font-size: 14px">
+        <a href="../contactfolder/Contact.html">Contact</a>
+      </p>
+      <p style="font-size: 14px">
+        <a href="../signinfolder/LOGINPAGE.html">Sign In</a>
+      </p>
+    </div>
+    <div class="fb">
+      <p><a href="https://www.facebook.com/dorm690manila" target="_blank"><b>f</b> Facebook</a></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('reservationForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      var formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        contactNumber: document.getElementById('contactNumber').value,
+        emailAddress: document.getElementById('emailAddress').value,
+        address: document.getElementById('address').value,
+        school: document.getElementById('school').value,
+        emergencyContact: document.getElementById('emergencyContact').value,
+        postalCode: document.getElementById('postalCode').value,
+        relationship: document.getElementById('relationship').value,
+        roomType: document.getElementById('roomType').value,
+        moveInDateTime: document.getElementById('moveInDateTime').value
+      };
+
+      // Check if there are existing reservations
+      var reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+
+      // Check if there are any reservations within the 2-hour interval
+      var canReserve = true;
+      if (reservations.length > 0) {
+        var selectedMoveInTime = new Date(formData.moveInDateTime);
+        for (var i = 0; i < reservations.length; i++) {
+          var existingMoveInTime = new Date(reservations[i].moveInDateTime);
+          var timeDifference = Math.abs(existingMoveInTime - selectedMoveInTime);
+          var hoursDifference = Math.ceil(timeDifference / (1000 * 60 * 60));
+          if (hoursDifference < 2) {
+            canReserve = false;
+            break;
+          }
+        }
+      }
+
+      if (!canReserve) {
+        alert("Sorry, the chosen date and time has already been booked. Please choose another time.");
+        return;
+      }
+
+      // Save form data to localStorage
+      reservations.push(formData);
+      localStorage.setItem('reservations', JSON.stringify(reservations));
+      alert("Reservation successful!");
+
+      // Redirect to dashboard
+      window.location.href = '../Homefolder/Home.html';
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dorm 690 | Home</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+  <style type="text/css"></style>
+</head>
+
+<body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/adobe-garamond-pro-2" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="Home.css" />
+  <link rel="stylesheet" type="text/css" href="LOGINPAGE.css" />
+  <!--                                                                                                
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME DIV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+     -->
+  <div class="home">
+    <div class="header">
+      <img src="Logo.png" alt="logo" />
+      <div>
+        <p style="margin-top: 50px; font-size: 30px; font-size: 'Montserrat'">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+      </div>
+      <div class="navbar">
+        <a href="Home.html" class="active"><b><u>Home</u></b></a>
+        <a href="../aboutfolder/About.html">About</a>
+        <a href="../roomsfolder/Room.html">Rooms</a>
+        <a href="../amenities/amenities.html">Amenities </a>
+        <a href="../RoomRates/Rates.html">Rates</a>
+        <a href="../contactfolder/Contact.html">Contact</a>
+        <a href="../faqsfolder/Faqs.html">FAQs</a>
+        <a onclick="openPopup()" class="SignIn">Log In</a>
+      </div>
+    </div>
+    <!---------------------------------------------------log in popup---------------------------------------------------------------------- -->
+    <div id="loginPopup" class="main">
+      <div class="body">
+        <form id="form">
+          <div class="login-text">
+            <a onclick="closePopup()" class="previous-button">
+              <img src="icons8-x-button-64.png" alt="">
+            </a>
+            <script>
+              // JavaScript function to go to the previous page
+              function goToPreviousPage() {
+                window.history.back(); // This will take the user to the previous page in the browser history
+              }
+            </script>
+            <p style="margin-top: -30px;">DORM 690 LOGIN</p>
+          </div>
+          <div class="welcome-text">
+            <h1>WELCOME!</h1>
+            <hr size="5" color="#9F662E" align="left" width="27%">
+          </div>
+          <div class="user-pass">
+            <p>Username</p>
+            <input type="text" id="userName" name="userName" placeholder="Enter Username">
+          </div>
+          <div class="user-pass">
+            <p>Password</p>
+            <input type="password" id="passWord" name="passWord" placeholder="Enter Password">
+          </div>
+          <!-- Dropdown for selecting user type -->
+          <div class="user-pass">
+            <p>User Type</p>
+            <select id="type" name="type" required>
+              <option value="Select">Select</option>
+              <option value="tenant">Tenant</option>
+              <option value="admin">Admin</option>
+            </select>
+            <br>
+            <a href="../signinfolder/tenant-SignUp.html" class="create">Create Account</a>
+          </div>
+
+          <div style="display: flex;">
+            <button type="submit" class="loginbtn">Log In</button>
+            <a onclick="closePopup()" class="tenant-cancel">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var userName = document.getElementById("userName").value;
+        var passWord = document.getElementById("passWord").value;
+        var userType = document.getElementById("type").value; // Get selected user type
+        var storedUserData = JSON.parse(localStorage.getItem("TenantForms"));
+        if (storedUserData) {
+          var foundUser = storedUserData.find(function (user) {
+            return user.userName === userName && user.passWord === passWord && user.type === userType; // Check user type as well
+          });
+          if (foundUser) {
+            localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+            alert("Login successful!");
+
+            // Redirect based on user type
+            if (userType === "tenant") {
+              window.location.href = "../../LoggedTenants/Homefolder/Home.html"; // Redirect to tenant details
+            } else if (userType === "admin") {
+              window.location.href = "../../Admin/Admin - Dashboard/dashboard.html"; // Redirect to admin dashboard
+            }
+          } else {
+            alert("Invalid username, password, or user type. Please try again.");
+          }
+        } else {
+          alert("No user found. Please register first.");
+        }
+      });
+    </script>
+    <!-------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="content">
+      <h1 class="title" style="font-family: 'Montserrat'; font-weight: 250; font-size: 60px">
+        WELCOME TO
+      </h1>
+      <h2 class="title" style="
+            margin-bottom: 20px;
+            font-family: 'Adobe Garamond Pro';
+            font-size: 130px;
+          ">
+        <b style="color: #ffffff">dorm</b> <b style="color: #ffffff">690</b>
+      </h2>
+      <p class="description" style="font-size: 25px; font-weight: 350">
+        Your ultimate destination for all things <br />
+        dormitory living!
+      </p>
+      <a href="../reservefolder/FormReservation.html">
+        <button class="button">RESERVE NOW</button></a>
+    </div>
+  </div>
+  <!-- 
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!About Dorm 690!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+     -->
+  <div class="dorm690">
+    <h2 style="font-family: 'Adobe Garamond Pro'">
+      About <b style="color: #9f662e">dorm</b>
+      <b style="color: #0095d5">690</b>
+    </h2>
+    <hr size="5" color="#9F662E" align="center" width="15%" />
+    <div class="figures">
+      <img class="figure3" src="figure3.png" alt="" />
+      <img class="figure1" src="figure1.png" alt="" />
+      <img class="figure2" src="figure2.png" alt="" />
+    </div>
+    <p>
+      Welcome to Dorm 690, where comfort meets community! Nestled in the heart
+      of Manila City, our dormitory offers a vibrant and inclusive living
+      environment tailored to meet the needs of today’s female tenants. At
+      Dorm 690, we prioritize not only providing top-notch amenities and
+      modern accommodations but also fostering a sense of belonging and
+      camaraderie among our tenants.
+    </p>
+  </div>
+  <!-- 
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!LOCATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+     -->
+  <div class="location">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2730.084013464873!2d120.98902635456406!3d14.603528267983602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9f8d0dbfac9%3A0xe33a568b05871cde!2sDorm%20690!5e0!3m2!1sen!2sph!4v1709535709722!5m2!1sen!2sph"
+      width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="text">
+      <h3 style="font-family: 'Adobe Garamond Pro'">Location</h3>
+      <p style="font-size: 20px">
+        <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+      </p>
+      <div class="addres">
+        <hr size="5" color="#9F662E" align="left" width="15%" />
+      </div>
+      <div class="amenities">
+        <h4>Amenities:</h4>
+        <p>Study area</p>
+        <p>Laundry facilities</p>
+      </div>
+      <div class="reachus">
+        <h4>Reach us through:</h4>
+        <div class="logo" style="display: flex">
+          <img src="fblogo.png" alt="fb" style="margin-left: -10px; width: 63px; height: 33px" />
+          <img src="emaillogo.png" alt="email" style="margin-left: -20px; width: 40px; height: 30px" />
+        </div>
+        <hr align="left" size="3" width="80%" color="#9F662E" />
+        <p>
+          <i>Dorm 690 catered primarily to students from universities nearby,
+            including the University of Santo Tomas (UST), Far Eastern
+            University (FEU), San Beda College, University of Manila (UM),
+            University of the East (UE), Centro Escolar University (CEU),
+            etc.</i>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- 
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ROOMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+     -->
+  <div class="rooms">
+    <div class="room">
+      <div class="title">
+        <p style="font-size: 20px; padding-bottom: 10px">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+        <h3 style="font-family: 'Adobe Garamond Pro'">Rooms</h3>
+        <hr align="left" size="3" width="5%" color="#9F662E" />
+      </div>
+      <div class="standard">
+        <img src="Standard.jpg" alt="" />
+        <div class="wrapper">
+          <div class="text">
+            <h2 style="font-family: 'Adobe Garamond Pro'">Standard Rooms</h2>
+            <p>
+              Cozy and comfortable, our standard rooms provide essential
+              amenities for a pleasant stay at an affordable price. Perfect
+              for students looking for a simple yet functional living space.
+            </p>
+            <a href="../reservefolder/FormReservation.html" class="Explore" style="font-weight: bold">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <div class="acroom">
+        <img src="AC-room.jpg" alt="" />
+        <div class="wrapper">
+          <div class="text">
+            <h2 style="font-family: 'Adobe Garamond Pro'">
+              Air-conditioned Rooms
+            </h2>
+            <p>
+              Beat the heat and enjoy added comfort with our air-conditioned
+              rooms. Ideal for those who prefer a cool environment, these
+              rooms offer a refreshing retreat after a long day of classes or
+              studying.
+            </p>
+            <a href="../reservefolder/FormReservation.html" class="Explore"
+              style="position: absolute; font-weight: bold">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="premium">
+        <img src="premium.jpg" alt="" />
+        <div class="wrapper">
+          <div class="text">
+            <h2 style="font-family: 'Adobe Garamond Pro'">Premium Rooms</h2>
+            <p>
+              Elevate your living experience with our premium rooms. Enjoy
+              spacious accommodations and the convenience of your own
+              restroom, along with upgraded furnishings
+            </p>
+            <a href="../reservefolder/FormReservation.html" class="Explore" style="font-weight: bold">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <div class="private">
+        <img src="private.png" alt="" />
+        <div class="wrapper">
+          <div class="text">
+            <h2 style="font-family: 'Adobe Garamond Pro'">Private Rooms</h2>
+            <p>
+              Enjoy the ultimate privacy and independence with our private
+              rooms. Perfect for students who value solitude or prefer to have
+              their own space, these rooms offer a peaceful sanctuary within
+              the dormitory environment.
+            </p>
+            <a href="../reservefolder/FormReservation.html" class="Explore" style="font-weight: bold">Reserve</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footers">
+      <img src="Logo.png" alt="logo" />
+      <div>
+        <p style="margin-top: 40px; font-size: 30px">
+          <b style="color: #9f662e">dorm</b> <b style="color: #0095d5">690</b>
+        </p>
+        <p>Live comfortably</p>
+      </div>
+    </div>
+    <div class="adress">
+      <h4>Our Address</h4>
+      <p>690 Gastambide St. (Dalupan St. ),</p>
+      <p>Sampaloc, Manila, Philippines</p>
+    </div>
+    <div class="contact">
+      <h4>Contact Us</h4>
+      <p>(02) 736 6898</p>
+      <p>dorm690@gmail.com</p>
+    </div>
+    <div class="explore">
+      <h4>Explore Our Site</h4>
+      <p><a href="About.html">About Us</a></p>
+      <p><a href="../roomsfolder/Room.html">Rooms</a></p>
+      <p><a href="../contactfolder/Contact.html">Contact</a></p>
+      <p><a href="../signinfolder/LOGINPAGE.html">Sign In</a></p>
+    </div>
+    <div class="fb">
+      <p><a href="https://www.facebook.com/dorm690manila" target="_blank"><b>f</b> Facebook</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Dorm 690 | Sign-Up</title>
+  <link rel="icon" href="Logo.png" type="image/icon type">
+  <link rel="stylesheet" type="text/css" href="tenant-style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="main">
+    <form action="" id="registrationForm">
+      <div class="login-text">
+        <a onclick="goToPreviousPage()" class="previous-button">
+          <img src="icons8-x-button-64.png" alt="">
+        </a>
+        <script>
+          // JavaScript function to go to the previous page
+          function goToPreviousPage() {
+            window.history.back(); // This will take the user to the previous page in the browser history
+          }
+        </script>
+        <p style="margin-top: -30px;">Sign-Up</p>
+      </div>
+      <div class="welcome-text">
+        <h1>WELCOME!</h1>
+        <hr size="5" color="#9F662E" align="left" width="27%" />
+      </div>
+
+      <div class="Name" id="Name">
+        <div class="firstName">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required />
+        </div>
+
+        <div class="lastName">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" required />
+        </div>
+      </div>
+
+      <div class="user-pass">
+        <p>Email</p>
+        <input type="email" id="email" name="email" placeholder="Enter Email" pattern="[a-zA-Z0-9._%+-]+@gmail.com"
+          required />
+      </div>
+
+      <div class="user-pass">
+        <p>Username</p>
+        <input type="text" id="userName" name="userName" placeholder="Enter Username"
+          pattern="[a-zA-Z0-9._%+-]+@gmail.com" required />
+      </div>
+
+      <div class="user-pass">
+        <p>Password</p>
+        <input type="password" id="passWord" name="passWord" placeholder="Enter Password" required />
+
+        <p>Confirm Password</p>
+        <input type="password" id="confirmPassWord" name="confirmPassWord" placeholder="Enter Password" required />
+      </div>
+
+      <div class="user-pass">
+        <p>User Type</p>
+        <select id="type" name="type" required>
+          <option>Select</option>
+          <option value="tenant">Tenant</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div style="display: flex">
+        <p id="error" style="color: red; display: none;">Please enter a valid Gmail address.</p>
+        <button type="submit" class="loginbtn">Register</button>
+        <a href="../Homefolder/Home.html" class="tenant-cancel">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var userData = JSON.parse(localStorage.getItem('TenantForms')) || [];
+      var lastId = userData.length > 0 ? userData[userData.length - 1].id : 0;
+      var newId = lastId + 1;
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var userName = document.getElementById("userName").value;
+      var email = document.getElementById("email").value;
+      var passWord = document.getElementById("passWord").value;
+      var type = document.getElementById("type").value; // Get the selected user type
+      var data = {
+        id: newId,
+        firstName: firstName,
+        lastName: lastName,
+        userName: userName,
+        email: email,
+        passWord: passWord,
+        type: type // Include user type in the data
+      };
+      userData.push(data);
+      localStorage.setItem("TenantForms", JSON.stringify(userData));
+      alert('You have successfully registered at Dorm 690. Please log in to continue.');
+      window.location.href = "../Homefolder/Home.html"; // Redirect to login page
+    });
+  </script>
+</body>
+
+</html>

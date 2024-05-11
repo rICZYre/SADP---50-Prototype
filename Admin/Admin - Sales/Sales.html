@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100px;
+            display: inline-block;
+        }
+
+        table {
+            margin-top: 30px;
+            margin: auto;
+            width: 70%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            font-size: x-small;
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            width: 200px;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            width: fit-content;
+        }
+
+        button {
+            margin: 30px;
+        }
+
+        .button {
+            width: 300px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+            width: 65px;
+
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            width: 65px;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+        }
+
+        .btn-cancel {
+            background-color: #f44336;
+        }
+
+        .btn-update,
+        .btn-cancel-edit {
+            display: inline-block;
+        }
+
+        .edit-mode {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <title>Dorm 690 | Sales Table</title>
+    <link rel="icon" href="photos/Dorm 690 Logo 2.png" type="image/icon type">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="reservation.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav style="position: sticky;">
+            <ul>
+                <li><a href="#" class="logo">
+                        <img src="photos/Dorm 690 Logo 2.png" alt="">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+                <li><a href="../Admin - Dashboard/dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                <li><a href="../Admin - TenantsAcounts/Accounts.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Tenants</span>
+                    </a></li>
+                <li><a href="../Admin - Accounts/AllAccounts.html">
+                        <i class="fas fa-address-book"></i>
+                        <span class="nav-item">Accounts</span>
+                    </a></li>
+                <li><a href="../Admin - Rooms/Rooms.html">
+                        <i class="fas fa-bed"></i>
+                        <span class="nav-item">Rooms</span>
+                    </a></li>
+                <li><a href="../Admin- Payment Table/paymentTable.html">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Payment</span>
+                    </a></li>
+                <li><a href="../Admin - Reservation/Reservation.html">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-item">Reservations</span>
+                    </a></li>
+                <li><a href="../Admin - Contract/Contract.html">
+                        <i class="fas fa-file"></i>
+                        <span class="nav-item">Contract</span>
+                    </a></li>
+                <li><a href="#" class="active">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Sales</span>
+                    </a></li>
+                <li><a href="../../TenantS/Homefolder/Home.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+
+            <canvas id="reservationChart"
+                style="margin-bottom: 10px; background-color: white; box-shadow: 0px 0px 5px gray; border-radius: 5px; padding: 10px;"></canvas>
+
+            <div class="reserve-table">
+                <script>
+                    // Parse reservation data
+                    function parseReservationData() {
+                        var reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                        var monthlyCounts = {};
+
+                        reservations.forEach(function (reservation) {
+                            var date = new Date(reservation.moveInDateTime);
+                            var month = date.getMonth(); // Month is zero-based
+                            var year = date.getFullYear();
+                            var key = year + '-' + month;
+
+                            if (monthlyCounts[key]) {
+                                monthlyCounts[key]++;
+                            } else {
+                                monthlyCounts[key] = 1;
+                            }
+                        });
+
+                        return monthlyCounts;
+                    }
+
+                    // Generate bar graph
+                    function generateBarGraph() {
+                        var monthlyCounts = parseReservationData();
+                        var months = Object.keys(monthlyCounts).sort();
+                        var counts = months.map(function (month) {
+                            return monthlyCounts[month];
+                        });
+
+                        // Array of month names
+                        var monthNames = [
+                            'January', 'February', 'March', 'April', 'May', 'June',
+                            'July', 'August', 'September', 'October', 'November', 'December'
+                        ];
+
+                        // Map month numbers to their names
+                        var monthLabels = months.map(function (month) {
+                            var parts = month.split('-');
+                            var monthNumber = parseInt(parts[1], 10);
+                            return monthNames[monthNumber];
+                        });
+
+                        // Generate y-axis labels (1, 2, 3, ...)
+                        var maxYValue = Math.max(...counts);
+                        var yLabels = Array.from({ length: maxYValue }, (_, i) => i + 1);
+
+                        var ctx = document.getElementById('reservationChart').getContext('2d');
+                        var reservationChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: monthLabels,
+                                datasets: [{
+                                    label: 'Number of Reservations',
+                                    data: counts,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            stepSize: 1, // Increment by 1
+                                            suggestedMax: maxYValue // Set maximum y value
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    }
+
+                    // Call the function to generate bar graph
+                    generateBarGraph();
+                </script>
+
+            </div>
+
+            <div>
+                <canvas id="paymentChart"
+                    style="margin-bottom: 10px; background-color: white; box-shadow: 0px 0px 5px gray; border-radius: 5px; padding: 10px;"></canvas>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+                <script>
+                    // Your existing JavaScript for payment table
+
+                    // Load payment data from localStorage
+                    var payments = JSON.parse(localStorage.getItem('payments')) || [];
+
+                    // Prepare data for the line graph
+                    var monthsData = {};
+                    payments.forEach(function (payment) {
+                        var date = new Date(payment.date);
+                        var monthYear = date.toLocaleString('default', { month: 'short', year: 'numeric' });
+                        if (!monthsData[monthYear]) {
+                            monthsData[monthYear] = 0;
+                        }
+                        monthsData[monthYear] += parseFloat(payment.amountPaid);
+                    });
+
+                    // Convert data to Chart.js format
+                    var labels = Object.keys(monthsData);
+                    var data = Object.values(monthsData);
+
+                    // Create the line graph
+                    var ctx = document.getElementById('paymentChart').getContext('2d');
+                    var paymentChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Amount Paid (PHP)',
+                                data: data,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 2,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </section>
+    </div>
+
+
+</body>
+
+</html>

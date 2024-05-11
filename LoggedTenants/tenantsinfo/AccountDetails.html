@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dorm 690 | AccountDetails</title>
+    <link rel="icon" href="Logo.png" type="image/icon type">
+</head>
+
+<body>
+    <link rel="stylesheet" type="text/css" href="AccountDetails.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <header>
+        <div id="userInfo">
+            <!-- Display tenant info here -->
+        </div>
+        <p>Check out your Billing History or View your Profile!</p>
+    </header>
+    <div class="notification-icon">
+        <img src="bell.png" alt="Notification Bell" width="30" height="30">
+        <div class="notification-indicator">1</div>
+    </div>
+    <div class="back">
+        <a href="../Homefolder/Home.html">
+            <img src="icons8-back-50.png" alt="Back" title="Go Back">
+        </a>
+        <a href="../Homefolder/Home.html" class="text">Back
+        </a>
+    </div>
+    <div class="notification-text">
+        <h3>Update from you by Dorm 690</h3>
+        <p><b>2024-3-31:</b> The dormitory contract is almost due! Please make sure to renew it before the expiration
+            date to avoid any inconvenience.</p>
+    </div>
+    <br /> <br /><br />
+    <div class="position">
+        <div class="login-container">
+            <img src="renewContact.png" id="admin-profile">
+            <br /> <br /> <br />
+            <p id="admin-text">Renew Contract</p>
+            <p id="admin-content">Nearing the expiration of your rental request agreement contract? Renew it now!</p>
+            <a href="../contract/contract.html" id="billing-button">Renew Contract</a>
+        </div>
+        <div class="login-container">
+            <img src="viewhistory.png" id="tenant-profile">
+            <br /> <br /> <br />
+            <p>View Your Profile</p>
+            <p id="tenant-content">Would like to verify your information? Take a look!</p>
+            <a href="PersonalInformation.html" id="tenant-login">View Profile</a>
+        </div>
+        <div class="login-container">
+            <img src="billinghistory.png" id="admin-profile">
+            <br /> <br /> <br />
+            <p id="admin-text">View Your Billing History</p>
+            <p id="admin-content">Want to check your past billing history? Go check it out!</p>
+            <a href="BillngHistory.html" id="billing-button">View Billing History</a>
+        </div>
+    </div>
+    <br>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            if (loggedInUser) {
+                var userInfoContainer = document.getElementById("userInfo");
+                var fullName = loggedInUser.firstName + " " + loggedInUser.lastName;
+                userInfoContainer.innerHTML = "<h1>" + fullName + "</h1>";
+            }
+        });
+    </script>
+</body>
+
+</html>

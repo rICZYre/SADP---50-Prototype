@@ -1,0 +1,207 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #F7F7F7;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+header {
+    background-color: #e0b973;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+header p {
+    margin-top: -15px;
+}
+.login-container {
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 250px;
+    width: 350px;
+    margin-top: 10px;
+    margin-right: 35px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 2px solid #CCCCCC;
+}
+.login-container p{
+    text-align: center;
+    margin-top: -30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#tenant-profile{
+    width: 60px;
+    height: 50px;
+    margin-left: 8em;
+    margin-top: 50px;
+
+}
+#admin-profile{
+    width: 80px;
+    height: 70px;
+    margin-left: 7.5em;
+    margin-top: 40px;
+}
+#admin-text {
+    margin-top: -40px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+#tenant-content{
+    font-size: 10px;
+    color: #5D5B5B;
+    font-weight: 400;
+    margin: 0;
+    margin-top: -10px;
+    line-height: 20px;
+}
+#admin-content{
+    font-size: 10px;
+    color: #5D5B5B;
+    font-weight: 400;
+    margin: 0;
+    margin-top: -10px;
+    line-height: 20px;
+}
+.login-container a {
+    background-color: #E0B973;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    display: block;
+    width: 50px;
+    height: 5px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 3.5em;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+#tenant-login {
+    background-color: #E0B973;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    display: block;
+    width: 100px;
+    height: 5px;
+    text-align: center;
+    margin-top: 9px;
+    margin-left: 6em;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+#tenant-login:hover {
+    color: black;
+}
+.position {
+    margin-left: 120px;
+    margin-top: -50px;
+}
+#billing-button {
+    background-color: #E0B973;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    display: block;
+    width: 160px;
+    height: 5px;
+    text-align: center;
+    margin-top: 9px;
+    margin-left: 3.5em;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+#billing-button:hover {
+    color: black;
+}
+.notification-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+.notification-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .notification-text {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-align: justify;
+  }
+
+  .notification-icon:hover + .notification-text,
+  .notification-text:hover {
+    display: block;
+}
+.back{
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.back img {
+    width: 15px;
+    margin-bottom: -3px;
+}
+.back img:hover {
+    opacity: 0.85;
+}
+a{
+    text-decoration: none;
+}
+.back .text{
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+    margin-left: -5px;
+}
+.back .text:hover{
+    text-decoration: underline;
+}
