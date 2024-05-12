@@ -82,7 +82,10 @@
             border-radius: 5px;
             margin: 5px;
             width: 40px;
+            padding-left: 12px;
+            padding-top: 2px;
             height: 30px;
+
         }
 
         .btn-delete {
@@ -100,7 +103,8 @@
         }
 
         .btn-update,
-        .btn-cancel-edit {
+        .btn-cancel-edit,
+        .btn-print {
             display: inline-block;
         }
 
@@ -218,6 +222,7 @@
                             var downloadLink = document.createElement('a');
                             downloadLink.href = 'https://drive.google.com/file/d/1aU8tLELVfhaO0Hrc-gN0BwEJaFpUzRFr/view?usp=sharing';
                             downloadLink.download = 'Contract.pdf'; // You can set the desired filename here
+                            downloadLink.target = '_blank'; // Added target attribute
                             downloadLink.click();
                         });
                         actionCell.appendChild(printBtn);
@@ -269,6 +274,15 @@
                             window.open(contract.File, '_blank');
                         });
                         actionCell.appendChild(viewBtn)
+
+                        var viewBtn = document.createElement('button');
+                        viewBtn.innerHTML = '<i class="fas fa-eye"></i>';
+                        viewBtn.classList.add('btn-view');
+                        viewBtn.addEventListener('click', function () {
+                            // Add view functionality here
+                            window.open(contract.File, '_blank');
+                        });
+                        actionCell.appendChild(viewBtn);
 
                         var notifyBtn = document.createElement('button');
                         notifyBtn.innerHTML = '<i class="fas fa-bell"></i>';
