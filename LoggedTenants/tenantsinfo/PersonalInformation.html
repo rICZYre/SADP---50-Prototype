@@ -82,7 +82,7 @@
     <a href="../Homefolder/Home.html">
       <img src="icons8-back-50.png" alt="Back" title="Go Back">
     </a>
-    <a href="../Homefolder/Home.html" class="texts">Back
+    <a onclick="goToPreviousPage()" class="texts">Back
     </a>
   </div>
   <script>
@@ -98,6 +98,12 @@
         userInfoContainer.innerHTML = "<p>" + Email + "<p>";
       }
     });
+  </script>
+  <script>
+    // JavaScript function to go to the previous page
+    function goToPreviousPage() {
+      window.history.back(); // This will take the user to the previous page in the browser history
+    }
   </script>
 </body>
 

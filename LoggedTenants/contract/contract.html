@@ -24,7 +24,7 @@
     <a href="../Homefolder/Home.html">
       <img src="icons8-back-50.png" alt="Back" title="Go Back">
     </a>
-    <a href="../Homefolder/Home.html" class="text">Back
+    <a onclick="goToPreviousPage()" class="text">Back
     </a>
   </div>
   <div class="Contract">
@@ -90,6 +90,12 @@
       // Redirect to dashboard
       window.location.href = '../Homefolder/Home.html';
     });
+  </script>
+  <script>
+    // JavaScript function to go to the previous page
+    function goToPreviousPage() {
+      window.history.back(); // This will take the user to the previous page in the browser history
+    }
   </script>
 </body>
 
